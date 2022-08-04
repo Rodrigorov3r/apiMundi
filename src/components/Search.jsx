@@ -1,35 +1,28 @@
 import React, { useState } from 'react';
 
 const Search = ({ arrayPais }) => {
-  const [valor, setValor] = useState('');
+  //1- state input
+  const [input, setInput] = useState('');
 
+  //2- busqueda
   const handleInput = (e) => {
     const superValue = e.target.value;
-    setValor(superValue);
+    setInput(superValue);
   };
 
-  const arrNombres = arrayPais
-    .map((pais) => pais.name)
-    .map((elemento) => elemento.common);
+  //3-funcion filtrar
+  const filtrar = () =>{
+    
+  }
 
-  const filtroPais =
-    valor === ''
-      ? arrNombres
-      : arrNombres.filter((item) =>
-          item.toLowerCase().includes(valor.toLowerCase())
-        );
 
-  const mostrarPais = (() =>
-    filtroPais.map((pais, i) => <p key={i}>{pais}</p>))();
 
   return (
     <>
       <form>
         <label className="label-size">buscando paises: </label>
-        <input type="text" onChange={handleInput} placeholder=" search..." />
+        <input value={input} onChange={handleInput} placeholder=" buscar..." />
       </form>
-      {valor === '' ? null : mostrarPais}
-
     </>
   );
 };

@@ -7,11 +7,14 @@ function App() {
   const [arrayPais, setArrayPais] = useState([]);
 
   const url = 'https://restcountries.com/v3.1/all';
-
-  useEffect(() => {
+  const miData = () => {
     axios.get(url).then((response) => {
       setArrayPais(response.data);
     });
+  };
+
+  useEffect(() => {
+    miData();
   }, []);
 
   return (
