@@ -11,18 +11,24 @@ const Search = ({ arrayPais }) => {
   };
 
   //3-funcion filtrar
-  const filtrar = () =>{
-    
-  }
+  const filtrar = input
+    ? arrayPais.filter((item) =>
+        item.name.common.toLowerCase().includes(input.toLowerCase())
+      )
+    : '';
 
-
-
+  console.log(filtrar);
   return (
     <>
       <form>
         <label className="label-size">buscando paises: </label>
         <input value={input} onChange={handleInput} placeholder=" buscar..." />
       </form>
+      {input === '' ? (
+        <p>Buscate algo mostro</p>
+      ) : (
+        filtrar.map((elem) => <p>{elem.name.common}</p>)
+      )}
     </>
   );
 };
