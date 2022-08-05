@@ -2,6 +2,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.label-size{
-    font-size: x-large;
+.label-size {
+  font-size: x-large;
+}
+
+.text-advisor {
+  display: inline;
+  border: solid 3px;
+  padding: 5px;
 }

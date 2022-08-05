@@ -15,19 +15,19 @@ const Search = ({ arrayPais }) => {
     ? arrayPais.filter((item) =>
         item.name.common.toLowerCase().includes(input.toLowerCase())
       )
-    : '';
+    : null;
 
-  console.log(filtrar);
   return (
     <>
       <form>
         <label className="label-size">buscando paises: </label>
         <input value={input} onChange={handleInput} placeholder=" buscar..." />
       </form>
+      <br />
       {input === '' ? (
-        <p>Buscate algo mostro</p>
+        <p className="text-advisor">Buscate algo mostro</p>
       ) : (
-        filtrar.map((elem) => <p>{elem.name.common}</p>)
+        filtrar.map((elem) => <p key={elem.area}>{elem.name.common}</p>)
       )}
     </>
   );
