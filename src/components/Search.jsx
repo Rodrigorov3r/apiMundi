@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Country from './Country';
 
 const Search = ({ arrayPais }) => {
   //1- state input
@@ -16,7 +17,6 @@ const Search = ({ arrayPais }) => {
         item.name.common.toLowerCase().includes(input.toLowerCase())
       )
     : null;
-
   return (
     <>
       <form>
@@ -26,8 +26,10 @@ const Search = ({ arrayPais }) => {
       <br />
       {input === '' ? (
         <p className="text-advisor">Buscate algo mostro</p>
+      ) : input.length === 1 ? (
+        <p className="text-advisor">Muchas datas</p>
       ) : (
-        filtrar.map((elem) => <p key={elem.area}>{elem.name.common}</p>)
+        <Country arrayPais={arrayPais} filtrar={filtrar} />
       )}
     </>
   );
