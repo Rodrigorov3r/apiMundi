@@ -28,9 +28,11 @@ const Search = ({ arrayPais }) => {
         <p className="text-advisor">Buscate algo mostro</p>
       ) : input.length === 1 ? (
         <p className="text-advisor">Muchas datas</p>
-      ) : filtrar.map((elem) => (
-        <p key={elem.area}>{elem.name.common}</p>
-      ))}
+      ) : filtrar?.length === 1 ? (
+        <Country arrayPais={arrayPais} filtrar={filtrar} />
+      ) : (
+        filtrar.map((elem) => <p key={elem.area}>{elem.name.common}</p>)
+      )}
     </>
   );
 };
