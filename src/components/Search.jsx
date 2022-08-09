@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Country from './Country';
+import Modal from './Modal';
 
 const Search = ({ arrayPais }) => {
   //1- state input
   const [input, setInput] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   //2- busqueda
   const handleInput = (e) => {
@@ -31,7 +33,15 @@ const Search = ({ arrayPais }) => {
       ) : filtrar?.length === 1 ? (
         <Country arrayPais={arrayPais} filtrar={filtrar} />
       ) : (
-        filtrar.map((elem) => <p key={elem.area}>{elem.name.common}</p>)
+        filtrar.map((elem) => (
+          <>
+            <p key={elem.area}>
+              {elem.name.common}
+              <button onClick={() => setIsOpen(true)}>show</button>
+              <Modal open={isOpen}>Fancy Fancy Fancy</Modal>
+            </p>
+          </>
+        ))
       )}
     </>
   );
