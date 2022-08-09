@@ -11,11 +11,11 @@ const Country = ({ arrayPais, filtrar }) => {
           <p>{elem.area}</p>
           <br />
           <b>languages:</b>
-          {/* NO FUNCA <ul>
-              {elem.languages.map((lengua) => (
-                <li>{lengua}</li>
-              ))}
-            </ul> */}
+          <ul>
+            {Object.entries(elem.languages).map(([key, value]) => {
+              return <li key={key}>{value}</li>;
+            })}
+          </ul>
           <br />
           <img src={elem.flags.png} />
         </>
