@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Country = ({ arrayPais, filtrar }) => {
+const Country = ({ filtrar }) => {
   return (
     <>
       {filtrar.map((elem) => (
