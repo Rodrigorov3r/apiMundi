@@ -4,7 +4,7 @@ const Country = ({ filtrar }) => {
   return (
     <>
       {filtrar.map((elem) => (
-        <>
+        <div key={elem.area}>
           <h1>{elem.name.common}</h1>
           <br />
           <p>{elem.capital}</p>
@@ -18,7 +18,7 @@ const Country = ({ filtrar }) => {
           </ul>
           <br />
           <img src={elem.flags.png} />
-        </>
+        </div>
       ))}
     </>
   );
