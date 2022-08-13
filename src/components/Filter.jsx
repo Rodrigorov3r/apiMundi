@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import Country from './Country';
 
-const Filter = ({ filtrar }) => {
+const Filter = ({ filtrar, setInput }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = () => setIsOpen((current) => !current);
+  const handleClick = (e) => {
+    setIsOpen((current) => !current);
+    setInput(e.target.value);
+  };
 
   return (
     <>
-      {filtrar.map((elem ,index) => (
+      {filtrar.map((elem) => (
         <p key={elem.area}>
           {elem.name.common}
-          <button onClick={handleClick}>show</button>
+          <button value={elem.name.common} onClick={handleClick}>
+            show
+          </button>
           {isOpen && <Country filtrar={filtrar} />}
         </p>
       ))}

@@ -1,25 +1,26 @@
 import React from 'react';
 
 const Country = ({ filtrar }) => {
+  const theCountry = filtrar[0];
   return (
     <>
-      {filtrar.map((elem) => (
-        <div key={elem.area}>
-          <h1>{elem.name.common}</h1>
+      {
+        <div key={theCountry.area}>
+          <h1>{theCountry.name.common}</h1>
           <br />
-          <p>{elem.capital}</p>
-          <p>{elem.area}</p>
+          <p>{theCountry.capital}</p>
+          <p>{theCountry.area}</p>
           <br />
           <b>languages:</b>
           <ul>
-            {Object.entries(elem.languages).map(([key, value]) => {
+            {Object.entries(theCountry.languages).map(([key, value]) => {
               return <li key={key}>{value}</li>;
             })}
           </ul>
           <br />
-          <img src={elem.flags.png} />
+          <img src={theCountry.flags.png} />
         </div>
-      ))}
+      }
     </>
   );
 };

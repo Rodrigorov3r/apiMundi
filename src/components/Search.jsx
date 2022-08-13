@@ -18,6 +18,7 @@ const Search = ({ arrayPais }) => {
         item.name.common.toLowerCase().includes(input.toLowerCase())
       )
     : null;
+
   return (
     <>
       <form>
@@ -32,7 +33,7 @@ const Search = ({ arrayPais }) => {
       ) : filtrar?.length === 1 ? (
         <Country filtrar={filtrar} />
       ) : (
-        <Filter filtrar={filtrar} />
+        <Filter filtrar={filtrar} setInput={setInput} />
       )}
     </>
   );
