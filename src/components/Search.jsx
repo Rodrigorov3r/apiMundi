@@ -31,7 +31,7 @@ const Search = ({ arrayPais }) => {
       ) : input.length === 1 ? (
         <p className="text-advisor">Muchas datas</p>
       ) : filtrar?.length === 1 ? (
-        <Country filtrar={filtrar} />
+        <Country filtrar={filtrar}/>
       ) : (
         <Filter filtrar={filtrar} setInput={setInput} />
       )}

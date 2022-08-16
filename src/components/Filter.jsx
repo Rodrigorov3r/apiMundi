@@ -17,7 +17,7 @@ const Filter = ({ filtrar, setInput }) => {
           <button value={elem.name.common} onClick={handleClick}>
             show
           </button>
-          {isOpen && <Country filtrar={filtrar} />}
+          {isOpen && <Country filtrar={filtrar} setIsOpen={setIsOpen} />}
         </p>
       ))}
     </>

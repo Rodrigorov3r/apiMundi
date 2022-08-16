@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Country = ({ filtrar }) => {
+const Country = ({ filtrar, setIsOpen }) => {
   const theCountry = filtrar[0];
   return (
     <>
@@ -19,8 +19,10 @@ const Country = ({ filtrar }) => {
           </ul>
           <br />
           <img src={theCountry.flags.png} />
+          <br/>
         </div>
       }
+      <button onClick={() => {}}>Close</button>
     </>
   );
 };
