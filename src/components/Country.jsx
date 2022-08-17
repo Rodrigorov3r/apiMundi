@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 const Country = ({ filtrar, setIsOpen }) => {
   const theCountry = filtrar[0];
+
+  const keyA = import.meta.env.VITE_OPEN_WEATHER_KEY;
+  const url = 'https://api.openweathermap.org/data/2.5/weather?';
+
+  const weatherData = () => {
+    axios
+      .get(
+        `${url}q=${theCountry.capital}, ${theCountry.name.common}&appid=${keyA}`
+      )
+      .then((res) => console.log(res.data));
+  };
+
+  useEffect(() => weatherData(), []);
+
   return (
     <>
       {
@@ -19,7 +34,7 @@ const Country = ({ filtrar, setIsOpen }) => {
           </ul>
           <br />
           <img src={theCountry.flags.png} />
-          <br/>
+          <br />
         </div>
       }
       <button onClick={() => {}}>Close</button>

@@ -6,6 +6,8 @@ import Search from './components/Search';
 function App() {
   const [arrayPais, setArrayPais] = useState([]);
 
+  // .env with vite --> console.log(import.meta.env);
+
   const url = 'https://restcountries.com/v3.1/all';
   const miData = () => {
     axios.get(url).then((response) => {
