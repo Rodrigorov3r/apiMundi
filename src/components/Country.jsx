@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Country = ({ filtrar, setIsOpen }) => {
+  const [weather, setWeather] = useState([]);
+
   const theCountry = filtrar[0];
 
   const keyA = import.meta.env.VITE_OPEN_WEATHER_KEY;
@@ -12,7 +14,7 @@ const Country = ({ filtrar, setIsOpen }) => {
       .get(
         `${url}q=${theCountry.capital}, ${theCountry.name.common}&appid=${keyA}`
       )
-      .then((res) => console.log(res.data));
+      .then((res) => setWeather(res.data));
   };
 
   useEffect(() => weatherData(), []);
@@ -35,6 +37,10 @@ const Country = ({ filtrar, setIsOpen }) => {
           <br />
           <img src={theCountry.flags.png} />
           <br />
+          <h2>{`Weather in ${weather.name}`}</h2>
+          //temperatura
+          //icono
+          //viento
         </div>
       }
       <button onClick={() => {}}>Close</button>
