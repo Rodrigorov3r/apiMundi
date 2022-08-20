@@ -12,7 +12,7 @@ const Country = ({ filtrar, setIsOpen }) => {
   const weatherData = () => {
     axios
       .get(
-        `${url}q=${theCountry.capital}, ${theCountry.name.common}&units=metric&appid=${keyA}`
+        `${url}q=${theCountry.capital}, ${theCountry.name.common}&appid=${keyA}`
       )
       .then((res) => setWeather(res.data))
       .catch((err) => console.log(err));
