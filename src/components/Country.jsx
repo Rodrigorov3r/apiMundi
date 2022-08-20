@@ -12,12 +12,13 @@ const Country = ({ filtrar, setIsOpen }) => {
   const weatherData = () => {
     axios
       .get(
-        `${url}q=${theCountry.capital}, ${theCountry.name.common}&appid=${keyA}`
+        `${url}q=${theCountry.capital}, ${theCountry.name.common}&units=metric&appid=${keyA}`
       )
-      .then((res) => setWeather(res.data));
+      .then((res) => setWeather(res.data))
+      .catch((err) => console.log(err));
   };
 
-  useEffect(() => weatherData(), []);
+  useEffect(() => weatherData(), [filtrar]);
 
   return (
     <>
@@ -38,9 +39,9 @@ const Country = ({ filtrar, setIsOpen }) => {
           <img src={theCountry.flags.png} />
           <br />
           <h2>{`Weather in ${weather.name}`}</h2>
-          //temperatura
+          <p>{weather.main.temp}</p>
           //icono
-          //viento
+          <p>wind {weather.wind.speed} m/s</p>
         </div>
       }
       <button onClick={() => {}}>Close</button>
