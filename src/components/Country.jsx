@@ -40,7 +40,7 @@ const Country = ({ filtrar, setIsOpen }) => {
           <br />
           <h2>{`Weather in ${weather.name}`}</h2>
           <p>{weather.main.temp}</p>
-          //icono
+          {/* <img href= {http://openweathermap.org/img/wn/{weather.icon}@2x.png} alt={weather.description}/>  */}
           <p>wind {weather.wind.speed} m/s</p>
         </div>
       }
