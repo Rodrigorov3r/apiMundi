@@ -18,7 +18,7 @@ const Country = ({ filtrar, setIsOpen }) => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => weatherData(), [filtrar]);
+  useEffect(() => weatherData(), []);
   console.log(weather);
   return (
     <>
